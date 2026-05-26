@@ -1,0 +1,32 @@
+server:
+  port: ${PORT:8090}
+
+visionaid:
+  security:
+    apiKey: ${VISIONAID_API_KEY}
+
+  aws:
+    region: ${AWS_REGION:us-east-2}
+    uploadsBucket: ${VISIONAID_UPLOADS_BUCKET}
+    resultsBucket: ${VISIONAID_RESULTS_BUCKET}
+    presignExpirySeconds: 300
+
+    sns:
+      topic-arn: ${VISIONAID_SNS_TOPIC_ARN}
+
+  app:
+    userPrefix: user-demo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+springdoc:
+  swagger-ui:
+    path: /swagger
+
+openai:
+  apiKey: ${OPENAI_API_KEY}
+  model: gpt-4o-mini
